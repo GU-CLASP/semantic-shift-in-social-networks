@@ -7,14 +7,14 @@ and the amount of semantic change that takes place in how the community uses wor
 I hope the code is useful for people trying to replicate our results or try something new!
 If there's anything missing or if you have questions, feel free to email me or even make a pull request.
 
-I used a nix environment to run this, which can be found in [](./nix/), but most of the
-dependencies should als be in [](./requirements.txt).
+I used a nix environment to run this, which can be found in [/nix](./nix/), but most of the
+dependencies should als be in [requirements.txt](./requirements.txt).
 
 ## Downloading data
 
 We use comments from different communities on Reddit (subreddits) to investigate semantic shift at the community level. 
 First, we select 46 subreddits with enough data between 2015 and 2017.
-The subreddits used in the paper can be found in [](./chosen_subs.txt).
+The subreddits used in the paper can be found in [chosen_subs.txt](./chosen_subs.txt).
 You can also choose new subreddits using the same criteria we used by running
 
 ```
@@ -22,7 +22,7 @@ python3 -m data path/to/google-api-credentials.json choose-subs --google-project
 ```
 
 We used [pushshift.io](https://pushshift.io)'s Google BigQuery tables of Reddit comments to filter and download data,
-so you need a Google Cloud account to run the commands in [](./data.py). 
+so you need a Google Cloud account to run the commands in [data.py](./data.py). 
 
 The other commands in `data.py` take a similar syntax. `query-sample` downloads a sample of comments (balanced by subreddit) 
 to a provided temporary Google Storage bucket, and `split-subs` splits the results of `query-sample` into subreddit/year 
@@ -46,9 +46,9 @@ computed: strong, weak and full. *Strong* only considers edges with >1 interacti
 
 ## Semantic change 
 
-[](./train_change_models.sh) trains SGNS models for both the genuine and shuffled conditions (including shuffling the corpora 10 times)
+[train_change_models.sh](./train_change_models.sh) trains SGNS models for both the genuine and shuffled conditions (including shuffling the corpora 10 times)
 and computing naive and rectified semantic change. Naturally this step is the most time consuming.
 
 ## Results 
 
-Everything else is taken care of in [](create_results_df.py), including computing the rest of the community features.
+Everything else is taken care of in [create_results_df.py](create_results_df.py), including computing the rest of the community features.
