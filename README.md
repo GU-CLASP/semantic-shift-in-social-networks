@@ -40,7 +40,7 @@ Preprocessing commands are meant to be run in this order:
 
 ## Social network
 
-Computing the social network and clustering coefficient is done in [](./network.py). Three variants are
+Computing the social network and clustering coefficient is done in [network.py](./network.py). Three variants are
 computed: strong, weak and full. *Strong* only considers edges with >1 interaction, *weak* only considers edges with
 1 interaction and *full* considers both. They are all very closely correlated so we only used *full* in the paper.
 
